@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_KEY = "93ad0fb362mshf67be92eede3a50p1c74cejsn7088d365ba1e";
+const API_KEY = "19b3a4477emsha7d4ff53d336eafp1d1546jsn1da39fe79d91";
 
 const baseUrl = process.env.REACT_APP_BASE_API_URL;
 

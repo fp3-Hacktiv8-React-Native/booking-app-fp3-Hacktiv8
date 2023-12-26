@@ -1,6 +1,25 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Pressable } from "react-native";
+import DatePicker from "react-native-date-ranges";
 import { SearchBar } from "react-native-elements";
 import { Button } from "react-native-elements";
+import { Feather } from "@expo/vector-icons";
+
+const customButton = (onConfirm) => {
+  return (
+    <Button
+      onPress={onConfirm}
+      style={{
+        container: {
+          width: "80%",
+          marginHorizontal: "3%",
+        },
+        text: { fontSize: 20 },
+      }}
+      primary
+      title="Submit"
+    />
+  );
+};
 
 export default ItemFilter = ({
   setInputCity,
@@ -18,6 +37,57 @@ export default ItemFilter = ({
         onChangeText={(e) => setInputCity(e)}
         onClear={() => setInputCity("")}
       />
+      {/* Selected Dates */}
+      <Pressable
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          gap: 10,
+          paddingHorizontal: 10,
+          paddingVertical: 15,
+          backgroundColor: "white",
+          marginTop: 10,
+          borderRadius: 5,
+        }}>
+        <Feather
+          name="calendar"
+          size={24}
+          color="gray"
+          style={{ marginRight: 25 }}
+        />
+        <DatePicker
+          style={{
+            width: 350,
+            height: 30,
+            borderRadius: 0,
+            borderWidth: 0,
+            borderColor: "transparent",
+          }}
+          customStyles={{
+            placeholderText: {
+              fontSize: 15,
+              flexDirection: "row",
+              alignItems: "center",
+              marginRight: "auto",
+              color: "gray",
+            },
+            headerStyle: {
+              backgroundColor: "#ad0707",
+            },
+            contentText: {
+              fontSize: 15,
+              flexDirection: "row",
+              alignItems: "center",
+              marginRight: "auto",
+            },
+          }}
+          selectedBgColor="#ad0707"
+          customButton={(onConfirm) => customButton(onConfirm)}
+          allowFontScaling={false}
+          placeholder={"Select Your Dates"}
+          mode={"range"}
+        />
+      </Pressable>
       <Button
         title="Search"
         onPress={handleConfirmSearch}
@@ -26,7 +96,7 @@ export default ItemFilter = ({
           backgroundColor: "#ad0707",
           borderColor: "transparent",
           borderWidth: 0,
-          borderRadius: 7,
+          borderRadius: 20,
           paddingVertical: 10,
         }}
         containerStyle={{
