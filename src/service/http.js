@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_KEY = "19b3a4477emsha7d4ff53d336eafp1d1546jsn1da39fe79d91";
 
-const baseUrl = process.env.REACT_APP_BASE_API_URL;
+const baseUrl = "https://priceline-com-provider.p.rapidapi.com";
 
 const http = axios.create({
   baseURL: baseUrl,
